@@ -7,6 +7,7 @@ class SistemaDigestorio:
     def Comer(self):
         if self.comida < 91:
             self.comida += 10
+            self.dejetos += 5
             return True
         else:
             return False
@@ -14,6 +15,7 @@ class SistemaDigestorio:
     def Beber(self):
         if self.agua < 91:
             self.agua += 10
+            self.dejetos += 5
             return True
         else:
             return False
@@ -52,8 +54,8 @@ class Organismo:
             and 35.5 < self.temperatura < 37.5
         )   
         if not condicoes_ok:
-            print("Não consigo correr!")
-            return
+            return "Não consigo correr!"
+            
         self.stamina -= 1
         self.temperatura += 0.1
 
@@ -65,20 +67,24 @@ class Organismo:
 
     def Comer(self):
         if self.sistemadigestorio.Comer():
-            print("Nham-Nham, que delicia!")
+            return "Nham-Nham, que delicia!"
         else:
-            print("Já estou de barriga cheia!")
+            return "Já estou de barriga cheia!"
 
     def Beber(self):
             if self.sistemadigestorio.Beber():
-                print("Glub-glub, que delicia!")
+                return "Glub-glub, que delicia!"
             else:
-                print("Já estou de bexiga cheia!")
+                return "Já estou de bexiga cheia!"
 
     def Cagar(self):
-        self.sistemadigestorio.Cagar()
-        print("Que alívio!")
+        if self.sistemadigestorio.Cagar():
+            return "Que alívio!"
+        else:
+            return "Não consigo comer agora!"
 
     def Mijar(self):
-        self.sistemadigestorio.Mijar()
-        print("Que alívio!")
+        if self.sistemadigestorio.Mijar():
+            return "Que alívio!"
+        else:
+            return "Não consigo comer agora!"
