@@ -8,17 +8,21 @@ class SistemaDigestorio:
         self.agua = 100     # 100 = hidratado, 0 = desidratado
         self.dejetos = 0    # 0 = vazio, 100 = precisa cagar
         self.urina = 0      # 0 = vazio, 100 = precisa mijar
+        self.tax_eficiencia = 1
+
+    def update_tax_alimentacao(self,tax):
+        self.tax_eficiencia = tax
 
     def Comer(self):
         if self.comida < 91:
-            self.comida += 10
+            self.comida += 10 *self.tax_eficiencia
             self.dejetos = limitar(self.dejetos + 5)
             return True
         return False
 
     def Beber(self):
         if self.agua < 91:
-            self.agua += 10
+            self.agua += 10 * self.tax_eficiencia
             self.urina = limitar(self.urina + 5)
             return True
         return False
@@ -169,3 +173,27 @@ for t in range(40):
     o.Atualizar(dt)
     if t % 10 == 0:
         print(o.MostrarStatus())
+
+class Bioma:
+    def __init__(self,nome,temperatura,taxa_locomocao,taxa_alimentacao):
+        self.nome = nome
+        self.temperatura = temperatura
+        self.taxa_locomocao = taxa_locomocao
+        self.taxa_alimentacao = taxa_alimentacao
+
+    def get_info(self,info):
+        """
+        1 - Nome
+        2 - Temperatura
+        3 - Taxa locomoção
+        4 - Taxa alimentação
+        """
+        match info:
+            case 1:
+                return self.nome
+            case 2:
+                return self.temperatura
+            case 3:
+                return self.taxa_locomocao
+            case 4:
+                return self.taxa_alimentacao
