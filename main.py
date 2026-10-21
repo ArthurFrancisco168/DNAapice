@@ -30,7 +30,7 @@ class SistemaDigestorio:
         self.urina = 0
 
     def Consumir(self, esforco, dt):
-        """Metabolismo: gasta comida e água, mais rápido com esforço."""
+        # gasta comida e água, mais rápido com esforço.
         self.comida = limitar(self.comida - (0.05 + 0.4 * esforco) * dt)
         self.agua = limitar(self.agua - (0.08 + 0.6 * esforco) * dt)
 
