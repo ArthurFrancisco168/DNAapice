@@ -15,14 +15,14 @@ class SistemaDigestorio:
 
     def Comer(self):
         if self.comida < 91:
-            self.comida += 10
+            self.comida += 10 *self.tax_eficiencia
             self.dejetos = limitar(self.dejetos + 5)
             return True
         return False
 
     def Beber(self):
         if self.agua < 91:
-            self.agua += 10
+            self.agua += 10 * self.tax_eficiencia
             self.urina = limitar(self.urina + 5)
             return True
         return False
