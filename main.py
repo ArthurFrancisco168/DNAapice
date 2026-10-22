@@ -1,4 +1,4 @@
-"""Entrada oficial do jogo DNA Ápice."""
+"""Main"""
 from public.classes_jogo.game import main
 
 
