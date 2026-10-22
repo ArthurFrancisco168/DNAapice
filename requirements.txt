@@ -1,0 +1,15 @@
+pygame>=2.5,<3
+
+pip install -r requirements.txt
+python main.py
+
+python -m pip install pygame
+
+& "C:\Users\Usuario\AppData\Local\Programs\Python\Python315\python.exe" -m pip install pygame
+
+vai dar erro, download python 3.15
+
+winget install -e --id Python.Python.3.13
+python --version
+python -m pip install pygame
+python.exe -m pip install --upgrade pip
